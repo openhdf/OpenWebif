@@ -24,6 +24,7 @@
 
 from Tools.Directories import fileExists
 from time import time
+from boxbranding import getDisplayType
 import os
 import hashlib
 import re
@@ -927,13 +928,16 @@ def getAllInfo():
 	if re_search is not None:
 		driverdate = re_search.group(1)
 
+	if getDisplayType() in ("bwlcd96", "bwlcd128", "bwlcd140", "bwlcd255", "colorlcd128", "colorlcd220", "colorlcd400", "colorlcd480", "colorlcd720", "colorlcd800"):
+		lcd = 1
+
 	info['oever'] = oever
 	info['distro'] = distro
 	info['imagever'] = imagever
 	info['imagebuild'] = imagebuild
 	info['driverdate'] = driverdate
-	info['lcd'] = distro in ("openpli", "satdreamgr", "openvision", "openrsi") and lcd or 0
-	info['grabpip'] = distro in ("openpli", "satdreamgr", "openvision", "openrsi") and grabpip or 0
+	info['lcd'] = distro in ("openhdf", "openpli", "satdreamgr", "openvision", "openrsi") and lcd or 1
+	info['grabpip'] = distro in ("openhdf", "openpli", "satdreamgr", "openvision", "openrsi") and grabpip or 0
 	return info
 
 
