@@ -28,6 +28,7 @@ from boxbranding import getDisplayType
 import os
 import hashlib
 import re
+from functools import reduce
 
 try:
 	from Components.About import about
@@ -63,7 +64,7 @@ def get_random():
 
 
 def bin2long(s):
-	return reduce(lambda x, y: (x << 8) + y, map(ord, s))
+	return reduce(lambda x, y: (x << 8) + y, list(map(ord, s)))
 
 
 def long2bin(l):
