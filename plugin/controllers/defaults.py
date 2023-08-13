@@ -27,7 +27,7 @@ def _isPluginInstalled(p, plugin="plugin"):
 	return isPluginInstalled(p, plugin)
 
 
-OPENWEBIFVER = "OWIF 1.5.2"
+OPENWEBIFVER = "OWIF 1.5.2.1"
 
 PLUGIN_NAME = 'OpenWebif'
 PLUGIN_DESCRIPTION = "OpenWebif Configuration"
