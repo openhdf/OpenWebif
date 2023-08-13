@@ -212,11 +212,11 @@ def getInfo(session=None, need_fullinfo=False):
 	try:  # temporary due OE-A
 		info['lcd'] = getLcd()
 	except:  # nosec # noqa: E722
-		info['lcd'] = 0
+		info['lcd'] = 1
 	try:  # temporary due OE-A
 		info['grabpip'] = getGrabPip()
 	except:  # nosec # noqa: E722
-		info['grabpip'] = 0
+		info['grabpip'] = 1
 
 	chipset = "unknown"
 	if fileExists("/etc/.box"):
