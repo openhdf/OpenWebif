@@ -50,7 +50,7 @@ class GrabRequest(object):
 			fileformat = "bmp"
 
 		size = getUrlArg(request, "r")
-		if size != None:
+		if size is not None:
 			graboptions.append("-r")
 			graboptions.append("%d" % int(size))
 
@@ -65,11 +65,11 @@ class GrabRequest(object):
 				if InfoBar.instance.session.pipshown:
 					graboptions.append("-i 1")
 			elif mode == "lcd":
-				eDBoxLCD.getInstance().dumpLCD()
+				eDBoxLCD.getInstance().setDump(True)
 				fileformat = "png"
-				command = "cat /tmp/lcdshot.%s" % fileformat
+				command = "cat /tmp/lcd.png"
 
-		self.filepath = "/tmp/screenshot." + fileformat
+		self.filepath = "/tmp/screenshot.%s" % fileformat
 		self.container = eConsoleAppContainer()
 		self.container.appClosed.append(self.grabFinished)
 		self.container.stdoutAvail.append(request.write)
