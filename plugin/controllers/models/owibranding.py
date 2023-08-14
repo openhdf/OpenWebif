@@ -937,8 +937,8 @@ def getAllInfo():
 	info['imagever'] = imagever
 	info['imagebuild'] = imagebuild
 	info['driverdate'] = driverdate
-	info['lcd'] = distro in ("openhdf", "openpli", "satdreamgr", "openvision", "openrsi") and lcd or 1
-	info['grabpip'] = distro in ("openhdf", "openpli", "satdreamgr", "openvision", "openrsi") and grabpip or 1
+	info['lcd'] = distro in ("openhdf", "openpli", "satdreamgr", "openvision", "openrsi") and lcd or 0
+	info['grabpip'] = distro in ("openhdf", "openpli", "satdreamgr", "openvision", "openrsi") and grabpip or 0
 	return info
 
 
